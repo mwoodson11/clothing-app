@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
+import CartIcon from '../cartIcon/cartIcon.component';
+import Cart from '../cartDropdown/cartDropdown.component';
 
 import './header.styles.scss';
 
@@ -24,14 +26,18 @@ const Header = ({ currentUser }) => (
             </Link>
         
             {
-                currentUser ? 
-                <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
-                :
+                currentUser ? (
+                <div className='option' onClick={() => auth.signOut()}>
+                    SIGN OUT
+                </div>
+                ) : (
                 <Link className='option' to="/signIn">
-                    SIGN IN/UP
+                    SIGN IN
                 </Link>
-            }
+            )}
+            <CartIcon />
         </div>
+        <Cart />
     </div>
 )
 

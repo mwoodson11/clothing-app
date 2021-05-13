@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Homepage from './pages/homepage/homepage.component';
@@ -25,7 +25,7 @@ class  App extends React.Component {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapshot => {
-          this.props.setCurrentUser({
+          setCurrentUser({
             id:snapshot.id,
             ...snapshot.data()
           });
@@ -47,7 +47,17 @@ class  App extends React.Component {
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/signIn' component={SignInSignUp} />
+          <Route 
+            exact
+            path='/signIn' 
+            render={() => 
+              this.props.currentUser ? (
+              <Redirect to='/' />
+              ) : (
+                <SignInSignUp />
+              )
+            }
+          />
         </Switch>
       </div>
       
@@ -55,8 +65,12 @@ class  App extends React.Component {
   }
 }
 
+const mapStateToProps = ({user}) => ({
+  currentUser: user.currentUser
+});
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
