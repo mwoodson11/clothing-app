@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Route } from 'react-router-dom';
 
-import CollectionPreview from '../../components/collectionPreview/collectionPreview.component';
 import CollectionsOverview from '../../components/collectionsOverview/collectionsOverview.component';
 import CollectionsPage from '../collection/collection.component';
 
