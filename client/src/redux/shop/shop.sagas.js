@@ -5,7 +5,6 @@ import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/fireb
 import { fetchCollectionsSuccess, fetchCollectionsFailure } from './shop.actions';
 
 export function* fetchCollectionsAsync() {
-  yield console.log('Test');
   try {
     const collectionRef = firestore.collection('collections');
     const snapshot = yield collectionRef.get();
@@ -14,23 +13,14 @@ export function* fetchCollectionsAsync() {
   } catch (error) {
     yield put(fetchCollectionsFailure(error));
   }
-
 };
-
-//     collectionRef
-//       .get()
-//       .then(snapshot => {
-//         const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-//         dispatch(fetchCollectionsSuccess(collectionsMap));
-//       })
-//       .catch(error => dispatch(fetchCollectionsFailure(error.message)));
-//   };
-// };
 
 export function* fetchCollectionsStart() {
   yield takeLatest(ShopActionTypes.FETCH_COLLECTIONS_START, fetchCollectionsAsync);
 }
 
 export function* shopSagas() {
-  yield all([call(fetchCollectionsStart)]);
+  yield all([
+    call(fetchCollectionsStart)
+  ]);
 }

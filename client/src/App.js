@@ -1,4 +1,4 @@
-import './App.css';
+import React, {useEffect} from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -9,29 +9,16 @@ import Header from './components/header/header.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import SignInSignUp from './pages/signInSignUp/signInSignUp.component';
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import React from 'react';
-
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
-// import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 
-class App extends React.Component {
+import './App.css';
 
-  unsubscribeFromAuth = null;
+const App = ({checkUserSession, currentUser}) => {
+    useEffect(() => {
+      checkUserSession()
+    }, [checkUserSession]);
 
-  //Used to authenticate and store user info
-  componentDidMount() {
-    const { checkUserSession } = this.props;
-    checkUserSession();
-
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render() {
     return (
       <div>
         <Header />
@@ -43,7 +30,7 @@ class App extends React.Component {
             exact
             path='/signIn' 
             render={() => 
-              this.props.currentUser ? (
+              currentUser ? (
               <Redirect to='/' />
               ) : (
                 <SignInSignUp />
@@ -52,9 +39,7 @@ class App extends React.Component {
           />
         </Switch>
       </div>
-      
     );
-  }
 }
 
 const mapStateToProps = createStructuredSelector({
