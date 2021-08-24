@@ -16,14 +16,14 @@ import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './
 
 const Header = ({ currentUser, hidden, signOutStart }) => (
     <HeaderContainer>
-        <LogoContainer to="/">
+        <LogoContainer to="/home">
             <Logo className='logo' />
         </LogoContainer>
         <OptionsContainer>
             <OptionLink to="/shop">
                 SHOP
             </OptionLink>
-            <OptionLink to="/shop">
+            <OptionLink to="/contact">
                 CONTACT
             </OptionLink>
         

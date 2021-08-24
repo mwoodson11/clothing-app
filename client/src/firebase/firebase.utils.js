@@ -73,6 +73,7 @@ export const getCurrentUser = () => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
       unsubscribe();
       resolve(userAuth);
+      console.log(userAuth);
     }, reject)
   });
 };

@@ -1,0 +1,11 @@
+.form-box {
+    width: 100%;
+
+    .formInputLabel {
+        color: black;
+        font-size: 16px;
+        font-weight: normal;
+        pointer-events: none;
+        transition: 300ms ease all;
+    }
+}

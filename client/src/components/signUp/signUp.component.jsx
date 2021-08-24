@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import FormInput from '../formInput/formInput.component';
 import CustomButton from '../customButton/customButton.component';
 
-// import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-
 import './signUp.styles.scss';
 import { signUpStart } from '../../redux/user/user.actions';
 
