@@ -14,7 +14,7 @@ const LandingPage = () => {
                 <Text>
                     <Title>Welcome Home</Title>
                     <Description>Find the clothes that work with your authentic self</Description>
-                    <EnterButton to="/home">
+                    <EnterButton to="/shop">
                         <CustomButton>
                             Enter Store
                         </CustomButton>

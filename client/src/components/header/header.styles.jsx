@@ -31,3 +31,28 @@ export const OptionsContainer = styled.div`
 export const OptionLink = styled(Link)`
   ${OptionContainerStyles}
 `;
+
+export const StyledDiv = styled.div`
+    display: flex;
+    position: relative;
+    color: black;
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        // transform: scaleX(0);
+        height: 0px;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+        transform-origin: bottom right;
+        transition: height 0.2s ease-out;
+    }
+
+    &:hover:after {
+        height: 3px;
+        // transform: scaleX(1);
+        // transform-origin: bottom left;
+    }
+`;

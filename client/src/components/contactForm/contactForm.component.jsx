@@ -15,7 +15,7 @@ const TextArea = styled.textarea`
     width: 100%;
     border-radius: 0;
     border-bottom: 1px solid black;
-    margin: 15px 0;
+    margin: 5px 0 25px 0;
 `
 
 const ContactForm = ({userName, userEmail}) => {
