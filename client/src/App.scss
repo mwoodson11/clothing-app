@@ -1,18 +1,7 @@
-body {
-  font-family: 'Open Sans Condensed', sans-serif;
-  padding: 20px 60px;
+.pageContainer {
+    padding-top: 40px;
 
-  @media screen and (max-width: 800px) {
-    padding: 10px;
-}
-
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-* {
-  box-sizing: border-box;
+    @media screen and (max-width: 800px) {
+        padding-top: 40px;
+    }
 }

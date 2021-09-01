@@ -13,6 +13,7 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
 import { GlobalStyle } from './global.styles';
+import './App.scss';
 import Contact from './pages/contact/contact.component';
 
 const App = () => {
@@ -28,24 +29,26 @@ const App = () => {
       <div>
           <GlobalStyle />
         {location.pathname !== '/' && <Header /> }
-        <Switch>
-            <Route exact path='/' component={LandingPage} />
-            <Route path='/shop' component={Homepage} />
-            <Route path='/featured' component={ShopPage} />
-            <Route path='/contact' render={ () => <Contact {...currentUser} /> } />
-            <Route path='/checkout' component={CheckoutPage} />
-            <Route 
-              exact
-              path='/signIn' 
-              render={() => 
-                currentUser ? (
-                <Redirect to='/shop' />
-                ) : (
-                <SignInSignUp />
-                )
-              }
-            />
-        </Switch>
+        <div className="pageContainer">
+            <Switch>
+                <Route exact path='/' component={LandingPage} />
+                <Route path='/shop' component={Homepage} />
+                <Route path='/featured' component={ShopPage} />
+                <Route path='/contact' render={ () => <Contact {...currentUser} /> } />
+                <Route path='/checkout' component={CheckoutPage} />
+                <Route 
+                exact
+                path='/signIn' 
+                render={() => 
+                    currentUser ? (
+                    <Redirect to='/shop' />
+                    ) : (
+                    <SignInSignUp />
+                    )
+                }
+                />
+            </Switch>
+        </div>
       </div>
     );
 }
