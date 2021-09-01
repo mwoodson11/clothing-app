@@ -20,7 +20,6 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
     const location = useLocation();
     useEffect(() => {
         const handleSelected = () => {
-            console.log("Match:", location);
             if (location.pathname.includes("featured")) {
                 setSelected(0);
             } else if (location.pathname.includes("shop")) {
@@ -28,7 +27,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
             } else if (location.pathname.includes("contact")) {
                 setSelected(2);
             } else if (location.pathname.includes("signIn")) {
-                setSelected(2);
+                setSelected(3);
             } else {
                 setSelected(undefined)
             }

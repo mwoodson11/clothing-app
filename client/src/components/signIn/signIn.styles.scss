@@ -11,5 +11,16 @@
         display: flex;
         justify-content: space-between;
     }
+    
+    @media screen and (max-width: 800px) {
+        width: 90%;
+        margin-bottom: 30px;
+        padding-bottom: 50px;
+        border-bottom: 1px black dashed;
+
+        .buttons {
+            flex-wrap: wrap;
+        }
+    }
 }
 

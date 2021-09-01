@@ -14,13 +14,9 @@ const CollectionPage = () => {
     useEffect(() => {
         dispatch(fetchCollectionsStart())
       }, [dispatch]);
-  
-  console.log("CollectionId:", collectionId)
-  console.log("Collection:", collection);
 
   const { title, items } = collection;
   
-
   return (
     <div className='collectionPage'>
       <h2 className='title'>{title}</h2>

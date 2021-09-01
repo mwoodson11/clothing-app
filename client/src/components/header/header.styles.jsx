@@ -4,20 +4,38 @@ import { Link } from 'react-router-dom';
 const OptionContainerStyles = css`
   padding: 10px 15px;
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+    justify-content: space-evenly;
+}
 `;
 
 export const HeaderContainer = styled.div`
-  height: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 0px;
+
+    @media screen and (max-width: 800px) {
+        height: 40px;
+    }
 `;
 
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 70px;
   padding: 25px;
+  display: block;
+  align-items: center;
+
+  @media screen and (max-width: 800px) {
+    width: 30px;
+    padding: 0;
+    display: none;
+}
 `;
 
 export const OptionsContainer = styled.div`
@@ -26,6 +44,11 @@ export const OptionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    justify-content: space-evenly;
+}
 `;
 
 export const OptionLink = styled(Link)`
@@ -41,18 +64,20 @@ export const StyledDiv = styled.div`
         content: '';
         position: absolute;
         width: 100%;
-        // transform: scaleX(0);
         height: 0px;
         bottom: 0;
         left: 0;
         background-color: black;
         transform-origin: bottom right;
         transition: height 0.2s ease-out;
+
     }
 
     &:hover:after {
         height: 3px;
-        // transform: scaleX(1);
-        // transform-origin: bottom left;
+
+        @media screen and (max-width: 800px) {
+            height: 0px;
+        }
     }
 `;

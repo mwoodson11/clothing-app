@@ -12,7 +12,7 @@ import LandingPage from './pages/landingpage/landingpage.component';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
-import './App.css';
+import { GlobalStyle } from './global.styles';
 import Contact from './pages/contact/contact.component';
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
 
     return (
       <div>
+          <GlobalStyle />
         {location.pathname !== '/' && <Header /> }
         <Switch>
             <Route exact path='/' component={LandingPage} />
